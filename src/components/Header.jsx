@@ -1,17 +1,25 @@
+import { Link } from "react-router-dom";
 import "../styles/Header.css";
 
-function Header({ cartItemCount, onCartClick }) {
+function Header({ searchTerm, setSearchTerm }) {
   return (
     <header className="header">
-      <h1>QuickCart</h1>
+      <h1 className="logo">QuickCart</h1>
 
-      <button className="cart-button" onClick={onCartClick}>
-        🛒 Cart
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/category/Electronics">Electronics</Link>
+        <Link to="/category/Clothing">Clothing</Link>
+        <Link to="/cart">Cart</Link>
+      </nav>
 
-        {cartItemCount > 0 && (
-          <span className="cart-count">{cartItemCount}</span>
-        )}
-      </button>
+      <input
+        className="search"
+        type="text"
+        placeholder="Search products"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
     </header>
   );
 }
