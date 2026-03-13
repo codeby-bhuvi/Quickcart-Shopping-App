@@ -1,4 +1,4 @@
-export const products = [
+ const products = [
   {
     id: 1,
     name: "Wireless Headphones",
@@ -64,3 +64,5 @@ export const products = [
     category: "Sports"
   }
 ];
+
+export default products;
